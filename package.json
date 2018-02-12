@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "watch": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cross-env NODE_ENV=test jest"
   },
   "author": "",
   "license": "ISC",
@@ -16,11 +16,15 @@
     "vuex": "^3.0.1"
   },
   "devDependencies": {
+    "@types/jest": "^22.1.2",
+    "cross-env": "^5.1.3",
     "css-loader": "0.28.7",
     "extract-text-webpack-plugin": "3.0.2",
     "jest": "^22.2.2",
+    "jest-vue-preprocessor": "^1.3.1",
     "sass-loader": "6.0.6",
     "style-loader": "0.19.1",
+    "ts-jest": "^22.0.4",
     "ts-loader": "3.2.0",
     "typescript": "2.6.2",
     "vue": "2.5.11",
@@ -31,7 +35,7 @@
     "vue-test-utils": "^1.0.0-beta.11",
     "vue-typescript-import-dts": "3.1.1",
     "webpack": "3.10.0"
-  }
+  },
   "jest": {
     "moduleFileExtensions": [
       "js",
@@ -39,8 +43,11 @@
       "ts"
     ],
     "transform": {
-      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue-preprocessor",
+      ".(ts|tsx)": "<rootDir>/node_modules/ts-jest/preprocessor.js",
+      ".*": "<rootDir>/node_modules/babel-jest"
     },
+    "testRegex": "(/__tests__/.*|\\.(test|spec))\\.(ts|tsx|js)$",
     "mapCoverage": true
   }
 }
