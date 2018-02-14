@@ -1,7 +1,10 @@
 {
   "compilerOptions": {
     "strict": true,
-    "target": "es5",
+    "allowJs": true,
+    "allowUnusedLabels": false,
+    "allowSyntheticDefaultImports": true,
+    "target": "es3",
     "module": "es6",
     "moduleResolution": "node",
     "experimentalDecorators": true,
@@ -16,13 +19,14 @@
       "dom",
       "es2015",
       "es2015.promise"
-    ]
+    ],
+    "locale": "ko",
+    "pretty": true
   },
   "include": [
     "front-end/src/**/*"
   ],
   "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
+    "node_modules"
   ]
 }
