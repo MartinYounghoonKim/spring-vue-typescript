@@ -31,3 +31,4 @@ node_modules
 bundle.js
 coverage/
 dist/
+npm-debug.log
