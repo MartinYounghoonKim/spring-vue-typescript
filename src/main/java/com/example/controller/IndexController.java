@@ -9,7 +9,7 @@ public class IndexController {
     @GetMapping("/")
     public String index(Model model) {
         String viewName = "index";
-        model.addAttribute("title", "Noel");
+        model.addAttribute("title", "Martin");
         return viewName;
     }
 }
