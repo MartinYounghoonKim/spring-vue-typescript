@@ -1,5 +1,5 @@
 import { mount } from "vue-test-utils";
-import HelloWorld from "./HelloWorld.vue";
+import HelloWorld from "../src/components/hello-world/HelloWorld.vue";
 
 describe("ClassComponent.test.js", () => {
     let wrapper: any;
