@@ -3,7 +3,10 @@
     "strict": true,
     "target": "es5",
     "module": "es6",
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
+    "sourceMap": true,
     "experimentalDecorators": true,
     "typeRoots": [
       "./node_modules/@types/",
@@ -16,13 +19,13 @@
       "dom",
       "es2015",
       "es2015.promise"
-    ]
+    ],
+    "emitDecoratorMetadata": true,
+    "noImplicitAny": false
   },
   "include": [
-    "front-end/src/**/*"
+    "front-end/src/**/*",
+    "front-end/test/**/*"
   ],
-  "exclude": [
-    "node_modules",
-    "**/*.spec.ts"
-  ]
+  "exclude": ["node_modules"],
 }
