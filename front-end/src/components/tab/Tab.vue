@@ -6,15 +6,20 @@
       v-bind:key="index">
       <button 
         @click="changeCurrentTabIndex(index)"
-        v-bind:class="[{ 'tab-title-current' : index === currentTabIndex }]">
+        v-bind:class="[
+            `tab-title`,
+            `tab-title-${index}`,
+            { 'tab-title-current' : index === currentTabIndex }
+          ]">
         {{title}}
       </button>
     </li>
   </ul>
-  <div 
+  <div
+    class="tab-content"
+    v-if="index === currentTabIndex"
     v-for="(content, index) in tabs.map(tab => tab.content)"
-    v-bind:key="index"
-    v-bind:style="{ display: index === currentTabIndex ? 'block' : 'none' }">
+    v-bind:key="index">
     {{content}}
   </div>
 </div>
