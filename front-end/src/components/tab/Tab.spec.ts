@@ -25,6 +25,6 @@ describe('[Tab]', function () {
       .at(1)
       .trigger('click');
     expect(cmp.vm.currentTabIndex).toEqual(1);
-    expect(cmp.find('.tab-content').text()).toBe('tab3-content');
+    expect(cmp.find('.tab-content').text()).toBe('tab2-content');
   });
 });
