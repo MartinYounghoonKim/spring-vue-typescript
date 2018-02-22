@@ -6,3 +6,5 @@
 
 터미널에서 `npm run watch`
 
+## test 설정
+https://github.com/schoening/vue-typescript-class-component-jest
