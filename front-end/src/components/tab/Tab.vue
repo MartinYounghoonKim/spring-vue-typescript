@@ -22,6 +22,7 @@
             v-bind:key="index">
       {{content}}
     </div>
+
   </div>
 </template>
 
