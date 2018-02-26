@@ -1,12 +1,12 @@
 {
   "compilerOptions": {
     "strict": true,
-    "target": "es5",
-    "module": "es6",
     "allowJs": true,
+    "allowUnusedLabels": false,
     "allowSyntheticDefaultImports": true,
+    "target": "es3",
+    "module": "es6",
     "moduleResolution": "node",
-    "sourceMap": true,
     "experimentalDecorators": true,
     "typeRoots": [
       "./node_modules/@types/",
@@ -20,12 +20,13 @@
       "es2015",
       "es2015.promise"
     ],
-    "emitDecoratorMetadata": true,
-    "noImplicitAny": false
+    "locale": "ko",
+    "pretty": true
   },
   "include": [
-    "front-end/src/**/*",
-    "front-end/test/**/*"
+    "front-end/src/**/*"
   ],
-  "exclude": ["node_modules"],
+  "exclude": [
+    "node_modules"
+  ]
 }
