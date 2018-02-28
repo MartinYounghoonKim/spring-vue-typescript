@@ -11,15 +11,16 @@
 <script lang="ts">
     import Vue from "vue";
     import Component from "vue-class-component";
-
     interface HelloWorldInterface {
         msg: string;
+
         clickHandler(): void;
     }
 
     @Component({})
     export default class HelloWorld extends Vue implements HelloWorldInterface {
         msg = "Hello!!";
+
         clickHandler() {
             window.alert(this.msg);
         }

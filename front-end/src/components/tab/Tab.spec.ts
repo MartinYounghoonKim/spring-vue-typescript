@@ -1,4 +1,4 @@
-///<reference path="../../../../node_modules/@types/jest/index.d.ts"/>
+/// <reference path="../../../../node_modules/@types/jest/index.d.ts"/>
 // https://vue-test-utils.vuejs.org/kr/
 import { mount } from "vue-test-utils";
 import Tab from './Tab.vue';

@@ -1,6 +1,6 @@
-///<reference path="../../../../node_modules/@types/jest/index.d.ts"/>
+/// <reference path="../../../../node_modules/@types/jest/index.d.ts"/>
 // https://vue-test-utils.vuejs.org/kr/s
-import { mount } from "vue-test-utils";
+import {mount} from "vue-test-utils";
 import HelloWorld from './HelloWorld.vue';
 
 describe('[HelloWorld]', function () {
