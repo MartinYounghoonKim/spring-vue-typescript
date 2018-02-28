@@ -14,7 +14,7 @@ import Component from "vue-class-component";
 import { IHelloWorld } from './HelloWorld';
 
 @Component({})
-export default class HelloWorld extends Vue implements IHelloWorld {
+export default class HelloWorld extends Vue<IHelloWorld> {
   msg = "Hello!!";
   clickHandler() {
     window.alert(this.msg);

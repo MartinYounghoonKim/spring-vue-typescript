@@ -31,13 +31,9 @@ import Component from "vue-class-component";
 import {ITabSample} from './Tab'
 
 @Component({})
-export default class TabSample extends Vue implements ITabSample {
+export default class TabSample extends Vue<ITabSample> {
   currentTabIndex = 0;
-  tabs = [
-    { title: "tab1-title", content: "tab1-content" },
-    { title: "tab2-title", content: "tab2-content" },
-    { title: "tab3-title", content: "tab3-content" }
-  ];
+  tabs = [];
   changeCurrentTabIndex(index: number) {
     this.currentTabIndex = index;
   }
