@@ -11,14 +11,10 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-
-interface HelloWorldInterface {
-  msg: string;
-  clickHandler(): void;
-}
+import { IHelloWorld } from './HelloWorld';
 
 @Component({})
-export default class HelloWorld extends Vue implements HelloWorldInterface {
+export default class HelloWorld extends Vue implements IHelloWorld {
   msg = "Hello!!";
   clickHandler() {
     window.alert(this.msg);

@@ -1,10 +1,11 @@
 ///<reference path="../../../../node_modules/@types/jest/index.d.ts"/>
-// https://vue-test-utils.vuejs.org/kr/s
-import { mount } from "vue-test-utils";
+// https://vue-test-utils.vuejs.org/kr/
+import { mount, Wrapper } from "vue-test-utils";
+import { IHelloWorld } from './HelloWorld';
 import HelloWorld from './HelloWorld.vue';
 
 describe('[HelloWorld]', function () {
-  let cmp: any;
+  let cmp: Wrapper<IHelloWorld>;
 
   beforeEach(() => {
     cmp = mount(HelloWorld);

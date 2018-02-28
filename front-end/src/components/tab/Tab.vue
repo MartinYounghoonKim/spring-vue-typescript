@@ -28,18 +28,10 @@
 <script lang="ts">
 import Vue from "vue";
 import Component from "vue-class-component";
-
-interface TabSampleInterface {
-  currentTabIndex: number;
-  tabs: Array<{
-    title: string;
-    content: string;
-  }>;
-  changeCurrentTabIndex(index: number): void;
-}
+import {ITabSample} from './Tab'
 
 @Component({})
-export default class TabSample extends Vue implements TabSampleInterface {
+export default class TabSample extends Vue implements ITabSample {
   currentTabIndex = 0;
   tabs = [
     { title: "tab1-title", content: "tab1-content" },

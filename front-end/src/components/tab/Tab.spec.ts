@@ -1,10 +1,11 @@
 ///<reference path="../../../../node_modules/@types/jest/index.d.ts"/>
 // https://vue-test-utils.vuejs.org/kr/
-import { mount } from "vue-test-utils";
+import { mount, Wrapper } from "vue-test-utils";
+import { ITabSample } from "./Tab";
 import Tab from './Tab.vue';
 
 describe('[Tab]', function () {
-  let cmp: any;
+  let cmp: Wrapper<ITabSample>;
 
   beforeEach(() => {
     cmp = mount(Tab);
