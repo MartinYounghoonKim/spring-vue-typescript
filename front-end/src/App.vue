@@ -1,6 +1,5 @@
 <template>
 <div id="app">
-  asdf
   <ul class="gnb">
     <li>
       <a href="#/">index</a>
