@@ -1,8 +1,10 @@
 import Vue from "vue";
 import App from "./App.vue";
 
-const vm: Vue = new Vue({
+import router from "./router/index";
+
+new Vue({
+    router,
     el: "#app",
-    template: "<app/>",
-    components: { App }
+    render: h => h(App)
 });
