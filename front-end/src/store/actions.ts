@@ -1,14 +1,10 @@
 import TODO_TYPES from './mutationsType';
-import TodoAPI from '../api/TodoAPI';
-import { ActionTree } from 'vuex'
+import todoServices from '../services/todoServices';
+import { ActionContext } from 'vuex';
 
-const todoActions: ActionTree<any, any> = {
-    fetchTodos ({ commit }) {
-        TodoAPI.get('/')
-            .then( (res: any) => {
-                commit(TODO_TYPES.FETCH, res.data);
-            });
-    }
+export function fetchTodos(store: ActionContext<any, any>) {
+    return todoServices.fetchTodo()
+        .then((res: any) => {
+            store.commit(TODO_TYPES.FETCH, res.data);
+        })
 }
-
-export default todoActions;
