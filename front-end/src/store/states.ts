@@ -1,6 +1,7 @@
 export interface State {
     todos: Todo[]
 };
+
 export interface Todo {
     id: number,
     todo: string,
