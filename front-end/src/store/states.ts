@@ -1,4 +1,4 @@
-export interface State {
+export interface Todos {
     todos: Todo[]
 };
 
@@ -8,6 +8,6 @@ export interface Todo {
     isDone?: boolean,
 }
 
-export const state: State = {
-    todos: []
-};
+export interface TodoState {
+    todos: Todos
+}
