@@ -47,10 +47,22 @@
 </template>
 <script lang="ts">
     import Vue from "vue";
+    import { mapActions } from 'vuex';
+    // import { mapActions } from 'vuex-class';
     import Component from "vue-class-component";
 
-    @Component({})
+    @Component<Todo>({
+        methods: {
+            ...mapActions([
+                'fetchTodos'
+            ])
+        }
+    })
     export default class Todo extends Vue{
+        created(): void{
+            this.$store.dispatch('fetchTodos');
+        }
+
     }
 </script>
 <style lang="scss">

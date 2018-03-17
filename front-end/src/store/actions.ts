@@ -9,6 +9,7 @@ type TodoContext = ActionContext<Todo, any>;
 export function fetchTodos(context: TodoContext ) {
     return todoServices.fetchTodo()
         .then((res: any) => {
+            console.log(res);
             context.commit(TODO_TYPES.FETCH, res.data);
         });
 };
