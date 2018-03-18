@@ -48,19 +48,14 @@
 <script lang="ts">
     import Vue from "vue";
     import { mapActions } from 'vuex';
-    // import { mapActions } from 'vuex-class';
+    import { Action } from 'vuex-class';
     import Component from "vue-class-component";
 
-    @Component<Todo>({
-        methods: {
-            ...mapActions([
-                'fetchTodos'
-            ])
-        }
-    })
+    @Component<Todo>({})
     export default class Todo extends Vue{
+        @Action('fetchTodos') fetchTodos: any
         created(): void{
-            this.$store.dispatch('fetchTodos');
+            this.fetchTodos();
         }
 
     }
