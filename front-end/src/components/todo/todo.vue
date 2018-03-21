@@ -9,13 +9,17 @@
                    placeholder="What needs to be done?"/>
         </div>
         <!--// Header -->
+
+        <!-- TodoList -->
         <todo-list :todos="todos"/>
+        <!--// TodoList -->
+
         <!-- Footer -->
         <div>
             <footer class="footer">
-        <span class="todo-count">
-            <strong>10</strong> 1 left
-        </span>
+                <span class="todo-count">
+                    <strong>10</strong> 1 left
+                </span>
                 <ul class="filters">
                     <li>
                         <router-link to="#none">All</router-link>
@@ -32,7 +36,7 @@
 <script lang="ts">
     import Vue from "vue";
     import { Todos } from '../../Interfaces/Todo.Interface';
-    import { Action, Getter } from 'vuex-class';
+    import { Action, Getter, State } from 'vuex-class';
     import Component from "vue-class-component";
     import TodoList from './TodoList.vue';
 
@@ -42,8 +46,10 @@
         }
     })
     export default class TodoApp extends Vue{
+        // mapState 로 변경
         @Action('fetchTodos') fetchTodos: any;
-        @Getter('getTodos') todos: Todos;
+        // @Getter('getTodos') todos: Todos;
+        @State('todos') todos: Todos;
 
         created(): void{
             this.fetchTodos();

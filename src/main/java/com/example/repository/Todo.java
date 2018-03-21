@@ -1,5 +1,6 @@
 package com.example.repository;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,12 +14,15 @@ import javax.persistence.*;
 @EqualsAndHashCode(of = "id")
 public class Todo {
     @Id
+    @JsonProperty
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @JsonProperty
     @Column(nullable = false)
     private String text;
 
+    @JsonProperty
     @Column
     private boolean completed;
 

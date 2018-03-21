@@ -13,6 +13,7 @@
     import Vue from 'vue';
     import { Todo } from '../../Interfaces/Todo.Interface';
     import { Component, Prop } from 'vue-property-decorator';
+
     @Component<TodoItem>({})
     export default class TodoItem extends Vue {
         @Prop() todo: Todo
