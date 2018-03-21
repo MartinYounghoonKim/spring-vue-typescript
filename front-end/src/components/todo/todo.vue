@@ -2,30 +2,14 @@
     <div class="todoapp">
         <!-- Header -->
         <div class="header">
-            <h1>Vue Test</h1>
-            <input
-                    autofocus="autofocus"
-                    autocomplete="off"
-                    placeholder="What needs to be done?"
-                    class="new-todo"
-            />
+            <h1>Vue Typescript</h1>
+            <input class="new-todo"
+                   autofocus="autofocus"
+                   autocomplete="off"
+                   placeholder="What needs to be done?"/>
         </div>
         <!--// Header -->
-        <!-- List-->
-        <section class="main">
-            <input type="checkbox" class="toggle-all"/>
-            <ul class="todo-list">
-                <li>
-                    <div class="view">
-                        <input type="checkbox" class="toggle">
-                        <label>테스트</label>
-                        <button class="destroy"></button>
-                    </div>
-                    <input ref="editInput" type="text" class="edit"/>
-                </li>
-            </ul>
-        </section>
-        <!--// List-->
+        <todo-list :todos="todos"/>
         <!-- Footer -->
         <div>
             <footer class="footer">
@@ -47,13 +31,20 @@
 </template>
 <script lang="ts">
     import Vue from "vue";
-    import { mapActions } from 'vuex';
-    import { Action } from 'vuex-class';
+    import { Todos } from '../../Interfaces/Todo.Interface';
+    import { Action, Getter } from 'vuex-class';
     import Component from "vue-class-component";
+    import TodoList from './TodoList.vue';
 
-    @Component<Todo>({})
-    export default class Todo extends Vue{
-        @Action('fetchTodos') fetchTodos: any
+    @Component<TodoApp>({
+        components: {
+            TodoList
+        }
+    })
+    export default class TodoApp extends Vue{
+        @Action('fetchTodos') fetchTodos: any;
+        @Getter('getTodos') todos: Todos;
+
         created(): void{
             this.fetchTodos();
         }
