@@ -1,13 +1,9 @@
+export interface Todos {
+    todos: Todo[]
+};
+
 export interface Todo {
-    id: string,
+    id: number,
     todo: string,
-    isDone?: boolean
-}
-
-export interface Event {
-    timestamp: number;
-}
-
-export interface MouseEvent extends Event {
-    target: HTMLElement;
-}
+    isDone?: boolean,
+};
