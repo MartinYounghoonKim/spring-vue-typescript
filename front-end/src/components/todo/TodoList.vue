@@ -3,14 +3,9 @@
     <section class="main">
         <input type="checkbox" class="toggle-all"/>
         <ul class="todo-list">
-            <li>
-                <div class="view">
-                    <input type="checkbox" class="toggle">
-                    <label>테스트</label>
-                    <button class="destroy"></button>
-                </div>
-                <input ref="editInput" type="text" class="edit"/>
-            </li>
+            <todo-item v-for="todo in todos"
+                       :key="todo.id"
+                       :todo="todo"></todo-item>
         </ul>
     </section>
     <!--// List-->
@@ -18,16 +13,17 @@
 <script lang="ts">
     import Vue from 'vue';
     import { Todos } from '../../Interfaces/Todo.Interface';
-    import Component from "vue-class-component";
+    import { Component, Prop } from 'vue-property-decorator';
+
+    import TodoItem from './TodoItem.vue';
 
     @Component<TodoList>({
-        props: {
-            todos: {
-                type: Todos
-            }
+        components: {
+            TodoItem
         }
     })
     export default class TodoList extends Vue {
+        @Prop() todos: Todos
 
     }
 </script>
