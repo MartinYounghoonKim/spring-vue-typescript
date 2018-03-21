@@ -7,11 +7,11 @@ export function fetchTodo(): Promise<object> {
                 {
                     id: 1,
                     todo: 'Todo List01',
-                    completed: false,
+                    isDone: false,
                 },{
                     id: 2,
                     todo: 'Todo List02',
-                    completed: true,
+                    isDone: true,
                 }
             ]
         });
