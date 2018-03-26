@@ -1,4 +1,15 @@
 {
+  "presets": [
+    [
+      "env",
+      {
+        "modules": false
+      }
+    ]
+  ],
+  "plugins": [
+    "syntax-dynamic-import"
+  ],
   "env": {
     "test": {
       "presets": ["env", "stage-2", "es2015"],

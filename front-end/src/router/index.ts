@@ -1,8 +1,5 @@
 import Vue from "vue";
 import Router from "vue-router";
-import HelloWorld from "../components/hello-world/HelloWorld.vue";
-import TabSample from "../components/tab/Tab.vue";
-import Todo from "../components/todo/todo.vue";
 
 Vue.use(Router);
 
@@ -11,17 +8,17 @@ export default new Router({
         {
             path: "/",
             name: "Hello",
-            component: HelloWorld
+            component: () => import('../components/hello-world/HelloWorld.vue')
         },
         {
             path: "/tabSample",
             name: "TabSample",
-            component: TabSample
+            component: () => import("../components/tab/Tab.vue")
         },
         {
             path: "/todo",
             name: "Todo",
-            component: Todo
+            component: () => import("../components/todo/todo.vue")
         }
     ]
 });
