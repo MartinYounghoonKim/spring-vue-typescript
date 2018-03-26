@@ -5,7 +5,7 @@
     "allowUnusedLabels": false,
     "allowSyntheticDefaultImports": true,
     "target": "es3",
-    "module": "es6",
+    "module": "esnext",
     "moduleResolution": "node",
     "experimentalDecorators": true,
     "typeRoots": [

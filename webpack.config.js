@@ -6,7 +6,8 @@ module.exports = {
     entry: './front-end/src/main',
     output: {
         path: DIST_DIR,
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        chunkFilename: 'dist/bundle.[name].js'
     },
     devtool: 'inline-source-map',
     watch: true,
