@@ -1,3 +1,4 @@
+<script src="../../../../src/main/resources/static/dist/dist/bundle.0.js"></script>
 <template>
     <div class="todoapp">
         <!-- Header -->

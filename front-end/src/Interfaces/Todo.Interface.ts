@@ -4,6 +4,6 @@ export interface Todos {
 
 export interface Todo {
     id: number,
-    todo: string,
-    isDone?: boolean,
+    text: string,
+    completed?: boolean,
 };

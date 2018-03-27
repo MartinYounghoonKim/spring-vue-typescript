@@ -4,8 +4,8 @@ export interface Todos {
 // TODO: Update 되는 Todo의 interface를 생성할 것
 export interface Todo {
     id: number,
-    todo: string,
-    isDone: boolean,
+    text: string,
+    completed: boolean,
 }
 
 export interface TodoState {

@@ -2,8 +2,8 @@
     <li>
         <div class="view">
             <input class="toggle"
-                   type="checkbox" :checked="todo.isDone">
-            <label>{{ todo.todo }}</label>
+                   type="checkbox" :checked="todo.completed">
+            <label>{{ todo.text }}</label>
             <button class="destroy"></button>
         </div>
         <input ref="editInput" type="text" class="edit"/>
