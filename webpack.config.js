@@ -7,7 +7,7 @@ module.exports = {
     output: {
         path: DIST_DIR,
         filename: 'bundle.js',
-        chunkFilename: 'dist/bundle.[name].js'
+        publicPath: '/dist/'
     },
     devtool: 'inline-source-map',
     watch: true,
