@@ -2,7 +2,7 @@ import TODO_TYPES from './mutationsType';
 import todoServices from '../services/todoServices';
 import { ActionContext, ActionTree } from 'vuex';
 
-import { Todo } from './states';
+import { Todo } from '../types/Todo';
 
 type TodoContext = ActionContext<Todo, any>;
 

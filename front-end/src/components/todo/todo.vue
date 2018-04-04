@@ -36,7 +36,7 @@
 </template>
 <script lang="ts">
     import Vue from "vue";
-    import { Todos } from '../../Interfaces/Todo.Interface';
+    import { Todos } from '../../types/Todo';
     import { Action, Getter, State } from 'vuex-class';
     import Component from "vue-class-component";
     import TodoList from './TodoList.vue';

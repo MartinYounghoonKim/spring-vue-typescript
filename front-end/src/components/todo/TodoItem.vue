@@ -11,7 +11,7 @@
 </template>
 <script lang="ts">
     import Vue from 'vue';
-    import { Todo } from '../../Interfaces/Todo.Interface';
+    import { Todo } from '../../types/Todo';
     import { Component, Prop } from 'vue-property-decorator';
 
     @Component<TodoItem>({})

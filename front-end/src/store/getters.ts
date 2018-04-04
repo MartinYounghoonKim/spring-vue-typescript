@@ -1,6 +1,6 @@
 import { GetterTree } from 'vuex'
 
-import { TodoState } from './states';
+import { TodoState } from '../types/Todo';
 
 const todoGetters: GetterTree<any, any> = {
     getTodos (state: TodoState) {

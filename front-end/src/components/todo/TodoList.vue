@@ -12,7 +12,7 @@
 </template>
 <script lang="ts">
     import Vue from 'vue';
-    import { Todos } from '../../Interfaces/Todo.Interface';
+    import { Todos } from '../../types/Todo';
     import { Component, Prop } from 'vue-property-decorator';
 
     import TodoItem from './TodoItem.vue';
