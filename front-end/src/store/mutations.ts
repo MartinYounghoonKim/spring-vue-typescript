@@ -1,9 +1,9 @@
 import { MutationTree } from 'vuex'
 
-import { Todos, TodoState } from '../types/Todo';
+import { TodoState } from '../types/Todo';
 
-const todoMutations: MutationTree <any> = {
-    setTodos: (state: TodoState, payload: Todos) => {
+const todoMutations: MutationTree <TodoState> = {
+    setTodos: (state: TodoState, payload) => {
         state.todos = payload;
     },
 };

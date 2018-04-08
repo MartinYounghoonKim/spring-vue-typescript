@@ -1,9 +1,5 @@
-import { Todos } from '../types/Todo';
+import { TodoState } from '../types/Todo';
 
-export interface TodoState {
-    todos: Todos
-}
-
-export const state: Todos = {
+export const state: TodoState = {
     todos: []
 };

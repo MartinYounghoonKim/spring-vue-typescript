@@ -7,6 +7,7 @@
             <input class="new-todo"
                    autofocus="autofocus"
                    autocomplete="off"
+                   @keyup.enter="test(testing)"
                    placeholder="What needs to be done?"/>
         </div>
         <!--// Header -->
@@ -36,7 +37,7 @@
 </template>
 <script lang="ts">
     import Vue from "vue";
-    import { Todos } from '../../types/Todo';
+    import { Todo } from '../../types/Todo';
     import { Action, Getter, State } from 'vuex-class';
     import Component from "vue-class-component";
     import TodoList from './TodoList.vue';
@@ -50,10 +51,15 @@
         // mapState 로 변경
         @Action('fetchTodos') fetchTodos: any;
         // @Getter('getTodos') todos: Todos;
-        @State('todos') todos: Todos;
+        @State('todos') todos: Array<Todo>;
 
         created(): void{
             this.fetchTodos();
+        }
+
+        testing: string = 'test';
+        test (c: string) :void {
+            console.log(c);
         }
 
     }

@@ -12,7 +12,7 @@
 </template>
 <script lang="ts">
     import Vue from 'vue';
-    import { Todos } from '../../types/Todo';
+    import { Todo } from '../../types/Todo';
     import { Component, Prop } from 'vue-property-decorator';
 
     import TodoItem from './TodoItem.vue';
@@ -23,7 +23,7 @@
         }
     })
     export default class TodoList extends Vue {
-        @Prop() todos: Todos
+        @Prop() todos: Array<Todo>
 
     }
 </script>
