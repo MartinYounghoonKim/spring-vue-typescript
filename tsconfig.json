@@ -2,6 +2,7 @@
   "compilerOptions": {
     "strict": true,
     "allowJs": true,
+    "noImplicitAny": true,
     "allowUnusedLabels": false,
     "allowSyntheticDefaultImports": true,
     "target": "es3",
