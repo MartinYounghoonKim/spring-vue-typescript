@@ -1,4 +1,3 @@
-<script src="../../../../src/main/resources/static/dist/dist/bundle.0.js"></script>
 <template>
     <div class="todoapp">
         <!-- Header -->
@@ -7,7 +6,7 @@
             <input class="new-todo"
                    autofocus="autofocus"
                    autocomplete="off"
-                   @keyup.enter="test(testing)"
+                   @keyup.enter="addTodo"
                    placeholder="What needs to be done?"/>
         </div>
         <!--// Header -->
@@ -35,6 +34,7 @@
         <!--// Footer -->
     </div>
 </template>
+
 <script lang="ts">
     import Vue from "vue";
     import { Todo } from '../../types/Todo';
@@ -50,6 +50,7 @@
     export default class TodoApp extends Vue{
         // mapState 로 변경
         @Action('fetchTodos') fetchTodos: any;
+        @Action('createTodo') createTodo: any;
         // @Getter('getTodos') todos: Todos;
         @State('todos') todos: Array<Todo>;
 
@@ -57,9 +58,11 @@
             this.fetchTodos();
         }
 
-        testing: string = 'test';
-        test (c: string) :void {
-            console.log(c);
+        addTodo (event: any) :void {
+            const inputElement: HTMLInputElement = event.target;
+            const todoText = inputElement.value;
+
+            this.createTodo(todoText);
         }
 
     }
