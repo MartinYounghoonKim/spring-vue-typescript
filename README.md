@@ -8,3 +8,6 @@
 
 ## test 설정
 https://github.com/schoening/vue-typescript-class-component-jest
+
+## IntelliJ Gradle project error solution example
+- https://intellij-support.jetbrains.com/hc/en-us/community/posts/360000029630-Please-update-Gradle-plugin-for-latest-
