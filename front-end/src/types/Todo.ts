@@ -1,3 +1,7 @@
+export interface TodoComponent {
+    addTodo: Function;
+};
+
 export interface Todo {
     id: number,
     text: string,
