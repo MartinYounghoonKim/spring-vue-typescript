@@ -1,5 +1,8 @@
 export interface TodoComponent {
-    addTodo: Function;
+    addTodo (event: Event): void;
+    // updateTodo: void;
+    // deleteTodo: void;
+    // fetchTodo: void;
 };
 
 export interface Todo {

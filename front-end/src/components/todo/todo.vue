@@ -58,11 +58,11 @@
             this.fetchTodos();
         }
 
-        addTodo (event: any) :void {
+        addTodo (event: any): void {
             const inputElement: HTMLInputElement = event.target;
             const todoText = inputElement.value;
 
-            this.createTodo(todoText);
+            this.createTodo({text: todoText});
         }
 
     }

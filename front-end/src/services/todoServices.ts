@@ -6,6 +6,7 @@ export function fetchTodo(): Promise<object> {
 }
 
 export function createTodo (payload: AddedTodo): Promise<object> {
+    console.log(payload);
     return API.post('/api/todos', payload);
 }
 
