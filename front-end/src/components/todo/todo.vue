@@ -19,7 +19,7 @@
         <div>
             <footer class="footer">
                 <span class="todo-count">
-                    <strong>10</strong> 1 left
+                    <strong>{{ todosCount }}</strong> 1 left
                 </span>
                 <ul class="filters">
                     <li>
@@ -51,7 +51,7 @@
         // mapState 로 변경
         @Action('fetchTodos') fetchTodos: any;
         @Action('createTodo') createTodo: any;
-        // @Getter('getTodos') todos: Todos;
+        @Getter('getTodosCount') todosCount: number;
         @State('todos') todos: Array<Todo>;
 
         created(): void{
