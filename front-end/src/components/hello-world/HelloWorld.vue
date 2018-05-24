@@ -1,5 +1,6 @@
 <template>
     <div class="hello">
+        테스트
         <h1>{{ msg }}</h1>
         <img src="/assets/logo.png">
         <button @click="clickHandler">
@@ -8,21 +9,8 @@
     </div>
 </template>
 
-<script lang="ts">
-    import Vue from "vue";
-    import Component from "vue-class-component";
-    interface HelloWorldInterface {
-        msg: string;
+<script>
+    import HelloWorld from './HelloWorld.js';
 
-        clickHandler(): void;
-    }
-
-    @Component({})
-    export default class HelloWorld extends Vue implements HelloWorldInterface {
-        msg = "Hello!!";
-
-        clickHandler() {
-            window.alert(this.msg);
-        }
-    }
+    export default HelloWorld;
 </script>
