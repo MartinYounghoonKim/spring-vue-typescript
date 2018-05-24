@@ -1,7 +1,7 @@
 export interface TodoComponent {
     addTodo (event: Event): void;
     // updateTodo: void;
-    // deleteTodo: void;
+    // deleteTodo(id: number): void;
     // fetchTodo: void;
 };
 
