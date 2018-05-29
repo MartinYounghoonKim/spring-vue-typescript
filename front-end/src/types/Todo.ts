@@ -1,10 +1,3 @@
-export interface TodoComponent {
-    addTodo (event: Event): void;
-    // updateTodo: void;
-    // deleteTodo: void;
-    // fetchTodo: void;
-};
-
 export interface Todo {
     id: number,
     text: string,

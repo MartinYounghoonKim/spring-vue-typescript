@@ -37,7 +37,7 @@
 
 <script lang="ts">
     import Vue from "vue";
-    import { Todo, TodoComponent } from '../../types/Todo';
+    import { Todo } from '../../types/Todo';
     import { Action, Getter, State } from 'vuex-class';
     import Component from "vue-class-component";
     import TodoList from './TodoList.vue';
@@ -47,7 +47,7 @@
             TodoList
         }
     })
-    export default class TodoApp extends Vue implements TodoComponent {
+    export default class TodoApp extends Vue {
         // mapState 로 변경
         @Action('fetchTodos') fetchTodos: any;
         @Action('createTodo') createTodo: any;
