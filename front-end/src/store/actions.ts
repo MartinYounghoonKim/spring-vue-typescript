@@ -7,15 +7,16 @@ type TodoContext = ActionContext<Todo, any>;
 
 export function fetchTodos(context: TodoContext) {
     return todoServices.fetchTodo()
-        .then((res: any) => {
-            context.commit('setTodos', res.data);
+        .then((res: Array<Todo>) => {
+            context.commit('setTodos', res);
         });
 };
 
 export function createTodo (context: TodoContext, payload: AddedTodo) {
     return todoServices.createTodo(payload)
-        .then((res: any) => {
-            //
+        .then((res: object) => {
+            context.commit('setTodo', res);
+            console.log(res);
         });
 }
 
