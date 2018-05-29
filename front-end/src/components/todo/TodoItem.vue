@@ -4,7 +4,7 @@
             <input class="toggle"
                    type="checkbox" :checked="todo.completed">
             <label>{{ todo.text }}</label>
-            <button class="destroy"></button>
+            <button class="destroy" @click=""></button>
         </div>
         <input ref="editInput" type="text" class="edit"/>
     </li>

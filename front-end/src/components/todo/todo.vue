@@ -12,7 +12,8 @@
         <!--// Header -->
 
         <!-- TodoList -->
-        <todo-list :todos="todos"/>
+        <todo-list :todos="todos"
+                   @deleteTodo="deleteTodo"/>
         <!--// TodoList -->
 
         <!-- Footer -->
@@ -51,6 +52,7 @@
         // mapState 로 변경
         @Action('fetchTodos') fetchTodos: any;
         @Action('createTodo') createTodo: any;
+        @Action('deleteTodo') deleteTodo: any;
         @Getter('getTodosCount') todosCount: number;
         @State('todos') todos: Array<Todo>;
 
@@ -60,9 +62,9 @@
 
         addTodo (event: any): void {
             const inputElement: HTMLInputElement = event.target;
-            const todoText = inputElement.value;
+            const text = inputElement.value;
 
-            this.createTodo({text: todoText});
+            this.createTodo({ text });
         }
 
     }
