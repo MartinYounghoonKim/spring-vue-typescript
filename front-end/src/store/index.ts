@@ -1,5 +1,6 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import Vuex, { StoreOptions } from 'vuex';
+import { TodoState } from '../types/Todo';
 
 import getters from './getters';
 import mutations from './mutations';
@@ -8,11 +9,11 @@ import { state } from './states';
 
 Vue.use(Vuex);
 
-const store = new Vuex.Store({
+const store: StoreOptions<TodoState> ={
     state,
     getters,
     mutations,
     actions
-});
+};
 
-export default store;
+export default new Vuex.Store(store);
