@@ -1,42 +1,35 @@
-import { API } from './coreServices';
+import { IHTTPResponse } from '../types/utils';
+import apiServices from './coreServices';
+
 import { AddedTodo, FetchedTodo, UpdatedTodo } from '../types/Todo';
 
-export function fetchTodo(): Promise<object> {
-    return API.get('/api/todos')
-        .then(res => {
-            const isSuccess = res.status === 200;
-            if (isSuccess) {
-                return new Promise(resolve => {
-                    resolve({
-                        status: 200,
-                        data: res.data,
-                    });
-                })
-            } else {
-                return new Promise(resolve => {
-                    resolve({
-                        status: 400,
-                        data: {}
-                    });
-                })
-            }
-        });
+export function fetchTodo(): Promise<IHTTPResponse> {
+    return apiServices.getMethod('/api/todos')
+        .then((res: IHTTPResponse) => {
+            console.log('services', res)
+            return res;
+        })
 }
 
-export function createTodo (payload: AddedTodo): Promise<object> {
-    return API.post('/api/todos', payload).then(res => {
-        return new Promise(resolve => {
-            return resolve(res.data);
-        });
-    });
+export function createTodo (payload: AddedTodo): Promise<IHTTPResponse> {
+    return apiServices.postMethod('/api/todos')
+        .then((res: IHTTPResponse) => {
+            return res;
+        })
 }
 
-export function deleteTodo (primaryKey: number) : Promise<object> {
-    return API.delete(`/api/todos/${primaryKey}`);
+export function deleteTodo (primaryKey: number) : Promise<IHTTPResponse> {
+    return apiServices.deleteMethod('/api/todos')
+        .then((res: IHTTPResponse) => {
+            return res;
+        })
 }
 
-export function updateTodo (payload: UpdatedTodo): Promise<object> {
-    return API.put('/api/todos', payload);
+export function updateTodo (payload: UpdatedTodo): Promise<IHTTPResponse> {
+    return apiServices.putMethod('/api/todos')
+        .then((res: IHTTPResponse) => {
+            return res;
+        })
 }
 
 export default {
