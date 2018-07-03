@@ -1,14 +1,14 @@
 import todoServices from '../services/todoServices';
 import { ActionContext, ActionTree } from 'vuex';
-import { IHTTPResponse } from '../types/utils';
+import {IAxiosResponse, IHTTPResponse} from '../types/utils';
 
-import { Todo, TodoState, UpdatedTodo, AddedTodo } from '../types/Todo';
+import {Todo, TodoState, UpdatedTodo, AddedTodo, FetchedTodo} from '../types/Todo';
 
 type TodoContext = ActionContext<Todo, any>;
 
 export function fetchTodos(context: TodoContext): Promise<IHTTPResponse> {
     return todoServices.fetchTodo()
-        .then((res: IHTTPResponse) => {
+        .then((res: IAxiosResponse<Array<FetchedTodo>>) => {
             const statusCode = res.status;
             if (statusCode === 200) {
                 context.commit('setTodos', res.data);
@@ -17,11 +17,15 @@ export function fetchTodos(context: TodoContext): Promise<IHTTPResponse> {
         });
 };
 
-export function createTodo (context: TodoContext, payload: AddedTodo) {
+export function createTodo (context: TodoContext, payload: AddedTodo): Promise<IHTTPResponse>  {
     return todoServices.createTodo(payload)
-        .then((res: object) => {
-            context.commit('setTodo', res);
-            console.log(res);
+        .then((res: IAxiosResponse<FetchedTodo>) => {
+            const statusCode = res.status;
+            if (statusCode === 200) {
+                console.log(res);
+                context.commit('setTodo', res.data);
+            }
+            return res;
         });
 }
 

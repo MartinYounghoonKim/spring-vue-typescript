@@ -1,19 +1,18 @@
-import { IHTTPResponse } from '../types/utils';
 import apiServices from './coreServices';
 
+import { IHTTPResponse, IAxiosResponse } from '../types/utils';
 import { AddedTodo, FetchedTodo, UpdatedTodo } from '../types/Todo';
 
-export function fetchTodo(): Promise<IHTTPResponse> {
+export function fetchTodo(): Promise<IAxiosResponse<Array<FetchedTodo>>> {
     return apiServices.getMethod('/api/todos')
-        .then((res: IHTTPResponse) => {
-            console.log('services', res)
+        .then((res: IAxiosResponse<Array<FetchedTodo>>) => {
             return res;
         })
 }
 
-export function createTodo (payload: AddedTodo): Promise<IHTTPResponse> {
-    return apiServices.postMethod('/api/todos')
-        .then((res: IHTTPResponse) => {
+export function createTodo (payload: AddedTodo): Promise<IAxiosResponse<FetchedTodo>> {
+    return apiServices.postMethod('/api/todos', payload)
+        .then((res: IAxiosResponse<FetchedTodo>) => {
             return res;
         })
 }
