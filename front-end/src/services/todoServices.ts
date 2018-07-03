@@ -2,7 +2,25 @@ import { API } from './coreServices';
 import { AddedTodo, UpdatedTodo } from '../types/Todo';
 
 export function fetchTodo(): Promise<object> {
-    return API.get('/api/todos');
+    return API.get('/api/todos')
+        .then(res => {
+            const isSuccess = res.status === 200;
+            if (isSuccess) {
+                return new Promise(resolve => {
+                    resolve({
+                        status: 200,
+                        data: res.data,
+                    });
+                })
+            } else {
+                return new Promise(resolve => {
+                    resolve({
+                        status: 400,
+                        data: {}
+                    });
+                })
+            }
+        });
 }
 
 export function createTodo (payload: AddedTodo): Promise<object> {

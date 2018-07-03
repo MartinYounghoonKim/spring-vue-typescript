@@ -4,11 +4,15 @@ import { ActionContext, ActionTree } from 'vuex';
 import { Todo, TodoState, UpdatedTodo, AddedTodo } from '../types/Todo';
 
 type TodoContext = ActionContext<Todo, any>;
-
+interface HTTPResponse {
+    status: number,
+    data: object
+}
 export function fetchTodos(context: TodoContext) {
     return todoServices.fetchTodo()
-        .then((res: any) => {
-            context.commit('setTodos', res.data);
+        .then((res: object) => {
+            console.log(res);
+            // context.commit('setTodos', res.data);
         });
 };
 
