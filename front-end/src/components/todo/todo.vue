@@ -7,6 +7,7 @@
                    autofocus="autofocus"
                    autocomplete="off"
                    @keyup.enter="addTodo"
+                   v-model="userTodo"
                    placeholder="What needs to be done?"/>
         </div>
         <!--// Header -->
@@ -42,6 +43,7 @@
     import { Action, Getter, State } from 'vuex-class';
     import Component from "vue-class-component";
     import TodoList from './TodoList.vue';
+    import {IAxiosResponse} from "../../types/utils";
 
     @Component<TodoApp>({
         components: {
@@ -49,22 +51,33 @@
         }
     })
     export default class TodoApp extends Vue {
-        // mapState 로 변경
+        userTodo: string = '';
+
         @Action('fetchTodos') fetchTodos: any;
         @Action('createTodo') createTodo: any;
         @Action('deleteTodo') deleteTodo: any;
-        @Getter('getTodosCount') todosCount: number;
+
+        @Getter('getTodosCount') todosCount: any;
         @State('todos') todos: Array<Todo>;
 
         created(): void{
             this.fetchTodos();
         }
 
-        addTodo (event: any): void {
-            const inputElement: HTMLInputElement = event.target;
-            const text = inputElement.value;
+        addTodo (): void {
+            const text = this.userTodo;
+            const isNotExistText = text.length <= 0;
 
-            this.createTodo({ text });
+            if (isNotExistText) {
+                return;
+            }
+            this.createTodo({ text })
+                .then((res: IAxiosResponse) => {
+                    const statusCode = res.status;
+                    if (statusCode === 200) {
+                        this.userTodo = '';
+                    }
+                });
         }
 
     }
