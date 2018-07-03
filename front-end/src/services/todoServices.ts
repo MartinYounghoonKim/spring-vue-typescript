@@ -1,5 +1,5 @@
 import { API } from './coreServices';
-import { AddedTodo, UpdatedTodo } from '../types/Todo';
+import { AddedTodo, FetchedTodo, UpdatedTodo } from '../types/Todo';
 
 export function fetchTodo(): Promise<object> {
     return API.get('/api/todos')
@@ -24,8 +24,11 @@ export function fetchTodo(): Promise<object> {
 }
 
 export function createTodo (payload: AddedTodo): Promise<object> {
-    console.log(payload);
-    return API.post('/api/todos', payload);
+    return API.post('/api/todos', payload).then(res => {
+        return new Promise(resolve => {
+            return resolve(res.data);
+        });
+    });
 }
 
 export function deleteTodo (primaryKey: number) : Promise<object> {

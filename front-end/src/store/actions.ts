@@ -8,18 +8,18 @@ interface HTTPResponse {
     status: number,
     data: object
 }
-export function fetchTodos(context: TodoContext) {
+export function fetchTodos(context: TodoContext): Promise<any> {
     return todoServices.fetchTodo()
-        .then((res: object) => {
-            console.log(res);
-            // context.commit('setTodos', res.data);
+        .then((res: any) => {
+            context.commit('setTodos', res);
         });
 };
 
 export function createTodo (context: TodoContext, payload: AddedTodo) {
     return todoServices.createTodo(payload)
-        .then((res: any) => {
-            //
+        .then((res: object) => {
+            context.commit('setTodo', res);
+            console.log(res);
         });
 }
 
