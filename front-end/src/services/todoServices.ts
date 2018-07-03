@@ -17,8 +17,8 @@ export function createTodo (payload: AddedTodo): Promise<IAxiosResponse<FetchedT
         })
 }
 
-export function deleteTodo (primaryKey: number) : Promise<IHTTPResponse> {
-    return apiServices.deleteMethod('/api/todos')
+export function deleteTodo (id: number) : Promise<IAxiosResponse> {
+    return apiServices.deleteMethod('/api/todos', { id })
         .then((res: IHTTPResponse) => {
             return res;
         })

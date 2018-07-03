@@ -9,8 +9,8 @@ const API_CONFIG: AxiosRequestConfig = {
 
 const API: AxiosInstance = axios.create(API_CONFIG);
 
-export function getMethod (uri: string, payload?: object|string|number): Promise<any> {
-    return API.get(uri)
+export function getMethod (uri: string, params?: object|string|number): Promise<any> {
+    return API.get(uri, { params })
         .then((res:AxiosResponse) => {
             return new Promise(resolve => {
                 resolve({
@@ -48,8 +48,8 @@ export function putMethod (uri: string, payload?: object|string|number): Promise
         .catch(errorHandler);
 }
 
-export function deleteMethod (uri: string, payload?: object|string|number): Promise<any> {
-    return API.delete(uri)
+export function deleteMethod (uri: string, params?: object|string|number): Promise<any> {
+    return API.delete(uri , { params })
         .then((res:AxiosResponse) => {
             return new Promise(resolve => {
                 resolve({
@@ -61,7 +61,7 @@ export function deleteMethod (uri: string, payload?: object|string|number): Prom
         .catch(errorHandler);
 }
 
-function errorHandler (err: AxiosError) {
+function errorHandler (error: AxiosError) {
     // Error handler
 }
 

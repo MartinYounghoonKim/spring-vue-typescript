@@ -22,7 +22,6 @@ export function createTodo (context: TodoContext, payload: AddedTodo): Promise<I
         .then((res: IAxiosResponse<FetchedTodo>) => {
             const statusCode = res.status;
             if (statusCode === 200) {
-                console.log(res);
                 context.commit('setTodo', res.data);
             }
             return res;
