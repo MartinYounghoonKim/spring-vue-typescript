@@ -23,7 +23,7 @@ export function getMethod (uri: string, payload?: object|string|number): Promise
 }
 
 export function postMethod (uri: string, payload?: object|string|number): Promise<any> {
-    return API.post(uri)
+    return API.post(uri, payload)
         .then((res:AxiosResponse) => {
             return new Promise(resolve => {
                 resolve({
