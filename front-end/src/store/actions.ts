@@ -2,7 +2,7 @@ import todoServices from '../services/todoServices';
 import { ActionContext, ActionTree } from 'vuex';
 import {IAxiosResponse, IHTTPResponse} from '../types/utils';
 
-import { TodoState, UpdatedTodo, AddedTodo, FetchedTodo } from '../types/Todo';
+import { TodoState, AddedTodo, FetchedTodo } from '../types/Todo';
 
 type TodoContext = ActionContext<TodoState, TodoState>;
 
@@ -28,23 +28,7 @@ export function createTodo (context: TodoContext, payload: AddedTodo): Promise<I
         });
 }
 
-export function updateTodo (context: TodoContext, payload: UpdatedTodo) {
-    return todoServices.updateTodo(payload)
-        .then(res => {
-            //
-        });
-}
-
-export function deleteTodo (context: TodoContext, id: number) {
-    return todoServices.deleteTodo(id)
-        .then(res => {
-            //
-        })
-}
-
 export default <ActionTree<TodoState, TodoState>> {
     createTodo,
     fetchTodos,
-    updateTodo,
-    deleteTodo
 };

@@ -23,8 +23,7 @@
         }
     })
     export default class TodoList extends Vue {
-        @Prop() todos: Array<Todo>
-
+        @Prop() todos: Todo[];
     }
 </script>
 <style lang="scss" scoped>

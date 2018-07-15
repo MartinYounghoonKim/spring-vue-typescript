@@ -13,8 +13,7 @@
         <!--// Header -->
 
         <!-- TodoList -->
-        <todo-list :todos="todos"
-                   @deleteTodo="deleteTodo"/>
+        <todo-list :todos="todos">
         <!--// TodoList -->
 
         <!-- Footer -->
@@ -55,10 +54,9 @@
 
         @Action('fetchTodos') fetchTodos: any;
         @Action('createTodo') createTodo: any;
-        @Action('deleteTodo') deleteTodo: any;
 
         @Getter('getTodosCount') todosCount: any;
-        @State('todos') todos: Array<Todo>;
+        @State('todos') todos: Todo[];
 
         created(): void{
             this.fetchTodos();
