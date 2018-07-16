@@ -1,15 +1,13 @@
 import apiServices from './coreServices';
 import { IAxiosResponse } from '../types/utils';
 import { Todo } from '../types/Todo';
-
-import Vue from 'vue';
-const EventBus = new Vue();
+import App from '../main';
 
 export function fetchTodo(): Promise<Todo[]> {
     return apiServices.getMethod('/api/todos')
         .then((res: IAxiosResponse<Todo[]>) => {
             if (res.isSuccess) {
-                EventBus.$snotify.success('환영합니다.');
+                App.$snotify.info('Hello, anonymous. Welcome to Todo app');
                 return res.data;
             } else {
                 return [];
@@ -21,10 +19,12 @@ export function createTodo (text: string): Promise<Todo> {
     return apiServices.postMethod('/api/todos', { text })
         .then((res: IAxiosResponse<Todo>) => {
             if (res.isSuccess) {
-                EventBus.$snotify.success(`새로운 할 일 ${text} 이 생성되었습니다.`);
+                App.$snotify.success(`${text} is created.`);
                 return Promise.resolve(res.data);
             } else {
-                return Promise.reject({});
+                // 서버에서 message 가 내려올 경우
+                App.$snotify.error('Something went wrong.');
+                return Promise.reject('Something went wrong.');
             }
         })
 }
