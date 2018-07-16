@@ -23,3 +23,6 @@
     export default class App extends Vue {
     }
 </script>
+<style>
+@import "~vue-snotify/styles/material.css";
+</style>

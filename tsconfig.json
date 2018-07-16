@@ -11,7 +11,7 @@
     "experimentalDecorators": true,
     "typeRoots": [
       "./node_modules/@types/",
-      "./typings"
+      "./front-end/src/typings"
     ],
     "types": [
       "vue-typescript-import-dts"
