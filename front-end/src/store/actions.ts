@@ -7,8 +7,10 @@ type TodoContext = ActionContext<TodoState, TodoState>;
 
 export function fetchTodos(context: TodoContext): Promise<void> {
     return todoServices.fetchTodo()
-        .then(res => {
-            context.commit('setTodos', res);
+        .then(todos => {
+            if (todos.length > 0) {
+                context.commit('setTodos', todos);
+            }
         });
 };
 
@@ -16,8 +18,11 @@ export function createTodo (context: TodoContext, text: string): Promise<Todo>  
     return todoServices.createTodo(text)
         .then(res => {
             context.commit('setTodo', res);
-            return res;
-        });
+            return Promise.resolve(res);
+        })
+        .catch(err => {
+            return Promise.reject({ err });
+        })
 }
 
 export default <ActionTree<TodoState, TodoState>> {

@@ -72,6 +72,8 @@
             this.createTodo(text)
                 .then(() => {
                     this.userTodo = '';
+                })
+                .catch((err: string) => {
                 });
         }
 
