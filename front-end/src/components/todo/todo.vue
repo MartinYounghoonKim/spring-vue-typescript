@@ -43,7 +43,6 @@
     import { Action, Getter, State } from 'vuex-class';
     import Component from "vue-class-component";
     import TodoList from './TodoList.vue';
-    import {IAxiosResponse} from "../../types/utils";
 
     @Component<TodoApp>({
         components: {
@@ -70,12 +69,9 @@
             if (isNotExistText) {
                 return;
             }
-            this.createTodo({ text })
-                .then((res: IAxiosResponse) => {
-                    const statusCode = res.status;
-                    if (statusCode === 200) {
-                        this.userTodo = '';
-                    }
+            this.createTodo(text)
+                .then(() => {
+                    this.userTodo = '';
                 });
         }
 

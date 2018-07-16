@@ -14,7 +14,7 @@ export function getMethod (uri: string, params?: object|string|number): Promise<
         .then((res:AxiosResponse) => {
             return new Promise(resolve => {
                 resolve({
-                    status: res.status,
+                    isSuccess: res.status === 200,
                     data: res.data
                 })
             });
@@ -27,7 +27,7 @@ export function postMethod (uri: string, payload?: object|string|number): Promis
         .then((res:AxiosResponse) => {
             return new Promise(resolve => {
                 resolve({
-                    status: res.status,
+                    isSuccess: res.status === 200,
                     data: res.data
                 })
             });

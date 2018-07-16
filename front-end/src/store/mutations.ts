@@ -1,10 +1,10 @@
-import {FetchedTodo, Todo, TodoState} from '../types/Todo';
+import { Todo, TodoState } from '../types/Todo';
 
-export function setTodos (state: TodoState, payload: Array<Todo>) {
+export function setTodos (state: TodoState, payload: Todo[]) {
     state.todos = payload;
 }
 
-export function setTodo (state: TodoState, payload: FetchedTodo) {
+export function setTodo (state: TodoState, payload: Todo) {
     state.todos.push(payload);
 }
 

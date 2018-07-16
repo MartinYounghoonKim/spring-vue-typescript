@@ -5,7 +5,8 @@ export interface IHTTPResponse {
 };
 
 
-export interface IAxiosResponse<T = any> {
+export interface IAxiosResponse<T> {
+    isSuccess: boolean;
     data: T;
     status: number;
     message?: string;
