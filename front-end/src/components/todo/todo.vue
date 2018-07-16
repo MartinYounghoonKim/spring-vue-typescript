@@ -14,6 +14,7 @@
 
         <!-- TodoList -->
         <todo-list :todos="todos">
+        </todo-list>
         <!--// TodoList -->
 
         <!-- Footer -->
