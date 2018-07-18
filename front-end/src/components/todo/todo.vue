@@ -52,10 +52,10 @@
     export default class TodoApp extends Vue {
         userTodo: string = '';
 
-        @Action('fetchTodos') fetchTodos: any;
-        @Action('createTodo') createTodo: any;
+        @Action('fetchTodos') fetchTodos: () => Promise<void>;
+        @Action('createTodo') createTodo: (str: string) => Promise<void>;
 
-        @Getter('getTodosCount') todosCount: any;
+        @Getter('getTodosCount') todosCount: Function;
         @State('todos') todos: Todo[];
 
         created(): void{
@@ -72,8 +72,6 @@
             this.createTodo(text)
                 .then(() => {
                     this.userTodo = '';
-                })
-                .catch((err: string) => {
                 });
         }
 

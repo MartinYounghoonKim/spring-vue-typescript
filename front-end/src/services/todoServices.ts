@@ -19,11 +19,9 @@ export function createTodo (text: string): Promise<Todo> {
     return apiServices.postMethod('/api/todos', { text })
         .then((res: IAxiosResponse<Todo>) => {
             if (res.isSuccess) {
-                App.$snotify.success(`${text} is created.`);
                 return Promise.resolve(res.data);
             } else {
                 // 서버에서 message 가 내려올 경우
-                App.$snotify.error('Something went wrong.');
                 return Promise.reject('Something went wrong.');
             }
         })

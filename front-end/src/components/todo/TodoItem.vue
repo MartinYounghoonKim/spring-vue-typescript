@@ -5,7 +5,7 @@
                    type="checkbox" :checked="todo.completed">
             <label>{{ todo.text }}</label>
         </div>
-        <input ref="editInput" type="text" class="edit"/>
+        <input type="text" class="edit"/>
     </li>
 </template>
 <script lang="ts">
