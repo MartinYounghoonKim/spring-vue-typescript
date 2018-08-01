@@ -3,8 +3,8 @@ import App from "./App.vue";
 
 import router from "./router/index";
 import store from './store/index';
-
 import Snotify from 'vue-snotify';
+
 Vue.use(Snotify, {
     toast: {
         timeout: 2000,

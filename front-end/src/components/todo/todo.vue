@@ -1,6 +1,5 @@
 <template>
     <div class="todoapp">
-        <!-- Header -->
         <div class="header">
             <h1>Vue Typescript</h1>
             <input class="new-todo"
@@ -10,30 +9,14 @@
                    v-model="userTodo"
                    placeholder="What needs to be done?"/>
         </div>
-        <!--// Header -->
-
-        <!-- TodoList -->
-        <todo-list :todos="todos">
-        </todo-list>
-        <!--// TodoList -->
-
-        <!-- Footer -->
+        <todo-list :todos="todos"/>
         <div>
             <footer class="footer">
                 <span class="todo-count">
-                    <strong>{{ todosCount }}</strong> 1 left
+                    total: <strong>{{ count }}</strong>
                 </span>
-                <ul class="filters">
-                    <li>
-                        <router-link to="#none">All</router-link>
-                        <router-link to="#none">Active</router-link>
-                        <router-link to="#none">Completed</router-link>
-                    </li>
-                </ul>
-                <button class="clear-completed" style="display: none;">Clear completed</button>
             </footer>
         </div>
-        <!--// Footer -->
     </div>
 </template>
 
@@ -52,29 +35,22 @@
     export default class TodoApp extends Vue {
         userTodo: string = '';
 
-        @Action('fetchTodos') fetchTodos: () => Promise<void>;
-        @Action('createTodo') createTodo: (str: string) => Promise<void>;
-
-        @Getter('getTodosCount') todosCount: Function;
+        @Action('fetchTodos') fetch: () => void;
+        @Action('createTodo') create: (str: string) => void;
+        @Getter('getTodosCount') count: number;
         @State('todos') todos: Todo[];
 
-        created(): void{
-            this.fetchTodos();
+        created() {
+            this.fetch();
         }
-
-        addTodo (): void {
+        addTodo () {
             const text = this.userTodo;
-            const isNotExistText = text.length <= 0;
-
-            if (isNotExistText) {
-                return;
+            const hasText = text.length > 0;
+            if (hasText) {
+                this.create(text);
+                this.userTodo = '';
             }
-            this.createTodo(text)
-                .then(() => {
-                    this.userTodo = '';
-                });
         }
-
     }
 </script>
 <style lang="scss">

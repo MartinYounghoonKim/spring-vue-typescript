@@ -6,11 +6,6 @@ Vue.use(Router);
 export default new Router({
     routes: [
         {
-            path: "/",
-            name: "Hello",
-            component: () => import('../components/hello-world/HelloWorld.vue')
-        },
-        {
             path: "/tabSample",
             name: "TabSample",
             component: () => import("../components/tab/Tab.vue")

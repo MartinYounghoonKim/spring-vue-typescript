@@ -2,9 +2,6 @@
     <div id="app">
         <ul class="gnb">
             <li>
-                <router-link :to="{ name: 'Hello' }">Index</router-link>
-            </li>
-            <li>
                 <router-link :to="{ name: 'TabSample' }">tabSample</router-link>
             </li>
             <li>
@@ -12,7 +9,7 @@
             </li>
         </ul>
         <router-view/>
-        <vue-snotify></vue-snotify>
+        <vue-snotify/>
     </div>
 </template>
 
@@ -21,9 +18,5 @@
     import Component from "vue-class-component";
 
     @Component({})
-    export default class App extends Vue {
-    }
+    export default class App extends Vue {}
 </script>
-<style>
-@import "~vue-snotify/styles/material.css";
-</style>
