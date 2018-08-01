@@ -7,9 +7,7 @@ export type TodoContext = ActionContext<TodoState, TodoState>;
 
 export function fetchTodos(context: TodoContext) {
     todoServices.fetchTodo()
-        .then(todos => {
-            context.commit('setTodos', todos.length > 0 ? todos : []);
-        });
+        .then(todos => context.commit('setTodos', todos));
 };
 
 export function createTodo (context: TodoContext, text: string) {
