@@ -1,5 +1,5 @@
 import { GetterTree } from 'vuex'
-import { TodoState } from '../types/Todo';
+import { TodoState } from '../../types/Todo';
 
 export function getTodosCount (state: TodoState): number {
     const isCompletedTodo = state.todos.map(v => v.completed === true);

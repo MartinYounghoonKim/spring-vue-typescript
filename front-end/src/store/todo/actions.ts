@@ -1,14 +1,14 @@
-import todoServices from '../services/todoServices';
+import todoServices from '../../services/todoServices';
 import { ActionContext, ActionTree } from 'vuex';
-import { TodoState } from '../types/Todo';
-import App from "../main";
+import { TodoState } from '../../types/Todo';
+import App from "../../main";
 
 export type TodoContext = ActionContext<TodoState, TodoState>;
 
 export function fetchTodos(context: TodoContext) {
     todoServices.fetchTodo()
         .then(todos => context.commit('setTodos', todos));
-};
+}
 
 export function createTodo (context: TodoContext, text: string) {
     todoServices.createTodo(text)

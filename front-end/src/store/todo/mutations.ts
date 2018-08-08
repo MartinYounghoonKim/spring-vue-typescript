@@ -1,4 +1,4 @@
-import { Todo, TodoState } from '../types/Todo';
+import { Todo, TodoState } from '../../types/Todo';
 
 export function setTodos (state: TodoState, payload: Todo[]) {
     state.todos = payload;
