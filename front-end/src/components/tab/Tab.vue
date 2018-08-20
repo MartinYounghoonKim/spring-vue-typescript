@@ -23,32 +23,32 @@
 </template>
 
 <script lang="ts">
-    import Vue from "vue";
-    import Component from "vue-class-component";
+  import Vue from "vue";
+  import Component from "vue-class-component";
 
-    interface TabSampleInterface {
-        currentTabIndex: number;
-        tabs: Array<{
-            title: string;
-            content: string;
-        }>;
+  interface TabSampleInterface {
+    currentTabIndex: number;
+    tabs: Array<{
+      title: string;
+      content: string;
+    }>;
 
-        changeCurrentTabIndex(index: number): void;
+    changeCurrentTabIndex(index: number): void;
+  }
+
+  @Component({})
+  export default class TabSample extends Vue implements TabSampleInterface {
+    currentTabIndex = 0;
+    tabs = [
+      {title: "tab1-title", content: "tab1-content"},
+      {title: "tab2-title", content: "tab2-content"},
+      {title: "tab3-title", content: "tab3-content"}
+    ];
+
+    changeCurrentTabIndex(index: number) {
+      this.currentTabIndex = index;
     }
-
-    @Component({})
-    export default class TabSample extends Vue implements TabSampleInterface {
-        currentTabIndex = 0;
-        tabs = [
-            {title: "tab1-title", content: "tab1-content"},
-            {title: "tab2-title", content: "tab2-content"},
-            {title: "tab3-title", content: "tab3-content"}
-        ];
-
-        changeCurrentTabIndex(index: number) {
-            this.currentTabIndex = index;
-        }
-    }
+  }
 </script>
 
 <style>
