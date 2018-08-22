@@ -17,6 +17,8 @@
                 </span>
             </footer>
         </div>
+        <button type="button" @click="active">활성버튼</button>
+        <button type="button" @click="unactive">비활성버튼</button>
     </div>
 </template>
 
@@ -37,6 +39,8 @@
 
         @Action('fetchTodos') fetch: () => void;
         @Action('createTodo') create: (str: string) => void;
+        @Action('activeButton') active: () => void;
+        @Action('unactiveButton') unactive: () => void;
         @Getter('getTodosCount') count: number;
         @State('todos') todos: Todo[];
 

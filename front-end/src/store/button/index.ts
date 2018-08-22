@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Vuex, {Module, StoreOptions} from 'vuex';
+import Vuex, { Module } from 'vuex';
 
 import mutations from './mutations';
 import actions from './actions';
